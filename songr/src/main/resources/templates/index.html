@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My App </title>
     <link rel="stylesheet" th:href="@{/index.css}" />
 </head>
 <body>
-    <p>this is home page </p>
+    <p>this is home page </p><br>
+
+    <form  action="/addAlbum" method="POST">
+        <p>Title </p><input type="text" name ="title"/>
+        <p>Artist </p><input type="text" name ="artist"/>
+        <p>Songer Count </p><input type="text" name ="songerCount"/>
+        <p>length  </p><input type="number" name ="length"/>
+        <p>Image Url  </p><input type="url" name ="imageUrl"/>
+        <button type="submit" > Submit </button>
+<!--        this.title = title;-->
+<!--        this.artist = artist;-->
+<!--        this.SongerCount = songerCount;-->
+<!--        this.length = length;-->
+<!--        this.imageUrl = imageUrl;-->
+    </form>
+
+    <ul th:each="album: ${albumList}">
+        <p>ID</p><span th:text="${album.id}"></span>
+        <p>Title</p><span th:text="${album.title}"></span>
+        <p>Artist</p><span th:text="${album.artist}"></span>
+        <p>SongerCount</p><span th:text="${album.songerCount}"></span>
+        <p>Length</p><span th:text="${album.length}"></span>
+        <p>image Url</p><span th:text="${album.imageUrl}"></span>
+
+        <p>**********************************************************</p>
+        </br>
+        <p>**********************************************************</p>
+    </ul>
 </body>
 </html>
