@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/" method = "GET">
+    <ul >
+        <p>ID</p><span th:text="${album.id}"></span>
+        <p>Title</p><span th:text="${album.title}"></span>
+        <p>Artist</p><span th:text="${album.artist}"></span>
+        <p>SongerCount</p><span th:text="${album.songerCount}"></span>
+        <p>Length</p><span th:text="${album.length}"></span>
+<!--        <p>image Url</p><span th:text="${album.imageUrl}"></span>-->
+        <img th:src="${album.imageUrl}" alt="ImgeURL" width="400" height="300">
+
+        <button action="Submit">Home </button>
+
+        <p>**********************************************************</p>
+        </br>
+        <p>**********************************************************</p>
+    </ul>
+</form>
+<form th:action="@{'/Album/'+${album.id}+'/addSong'}" method="post">
+
+        <p>Title </p><input type="text" name ="title"/>
+        <p>length  </p><input type="number" name ="length"/>
+        <p>trackNumber  </p><input type="number" name ="trackNumber"/>
+
+        <button action="Submit">Add Song </button>
+</form>
+
+<ul th:each="song : ${songs}">
+        <p>ID</p><span th:text="${song.id}"></span>
+        <p>Title</p><span th:text="${song.title}"></span>
+        <p>Length</p><span th:text="${song.length}"></span>
+        <p>trackNumber</p><span th:text="${song.trackNumber}"></span>
+
+
+        <p>**********************************************************</p>
+        </br>
+        <p>**********************************************************</p>
+</ul>
+</body>
+</html>

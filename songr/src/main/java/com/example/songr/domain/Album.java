@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.util.Set;
+
 import static lombok.AccessLevel.NONE;
 
 @Setter
@@ -28,6 +30,11 @@ public class Album {
 
   @NonNull
   private String imageUrl ;
+
+  @OneToMany(mappedBy = "album")
+  Set<Song> songs;
+
+
 
   public Album(@NonNull String title, @NonNull String artist, @NonNull int songerCount, @NonNull int length, @NonNull String imageUrl) {
     this.title = title;
@@ -81,6 +88,14 @@ public class Album {
 
   public Long getId() {
     return id;
+  }
+
+  public Set<Song> getSongs() {
+    return songs;
+  }
+
+  public void setSongs(Set<Song> songs) {
+    this.songs = songs;
   }
 
   @Override

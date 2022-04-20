@@ -21,13 +21,13 @@ public class helloControler {
     return "helloWorld";
  }
 
-     @GetMapping("/capitalize/{name}")
+    @GetMapping("/capitalize/{name}")
     public String upperCase(@PathVariable(name="name") String name , Model model) {
      name = name.toUpperCase();
      model.addAttribute("name" , name);
      return "capitalize";
  }
-//
+
 //    @ResponseBody
 //    @GetMapping("/Album")
 //    public ArrayList<Album> album (){
@@ -59,7 +59,7 @@ public class helloControler {
 //    }
 
     @PostMapping("/addAlbum")
-    public RedirectView createNewAlbum(@ModelAttribute Album album){ //modelAttribute when working with forms
+    public RedirectView createNewAlbum(@ModelAttribute Album album){
         albumRepository.save(album);
         return new RedirectView("/allalbums");
     }
@@ -69,6 +69,7 @@ public class helloControler {
         model.addAttribute("albumList",albumRepository.findAll());
         return "index";
     }
+
 
 
 }

@@ -18,24 +18,27 @@
         <p>length  </p><input type="number" name ="length"/>
         <p>Image Url  </p><input type="url" name ="imageUrl"/>
         <button type="submit" > Submit </button>
-<!--        this.title = title;-->
-<!--        this.artist = artist;-->
-<!--        this.SongerCount = songerCount;-->
-<!--        this.length = length;-->
-<!--        this.imageUrl = imageUrl;-->
+
     </form>
 
-    <ul th:each="album: ${albumList}">
+    <ul th:each="album : ${albumList}">
+        <form th:action="@{Album/{id}(id=${album.id})}" method = "GET">
         <p>ID</p><span th:text="${album.id}"></span>
         <p>Title</p><span th:text="${album.title}"></span>
         <p>Artist</p><span th:text="${album.artist}"></span>
         <p>SongerCount</p><span th:text="${album.songerCount}"></span>
         <p>Length</p><span th:text="${album.length}"></span>
         <p>image Url</p><span th:text="${album.imageUrl}"></span>
+        <img th:src="${album.imageUrl}" alt="ImgeURL" width="400" height="300">
+
+        <button action="Submit">View Album Details</button>
 
         <p>**********************************************************</p>
         </br>
         <p>**********************************************************</p>
+        </form>
     </ul>
+
+
 </body>
 </html>
