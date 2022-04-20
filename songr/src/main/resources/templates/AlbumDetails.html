@@ -12,7 +12,9 @@
         <p>Artist</p><span th:text="${album.artist}"></span>
         <p>SongerCount</p><span th:text="${album.songerCount}"></span>
         <p>Length</p><span th:text="${album.length}"></span>
-        <p>image Url</p><span th:text="${album.imageUrl}"></span>
+<!--        <p>image Url</p><span th:text="${album.imageUrl}"></span>-->
+        <img th:src="${album.imageUrl}" alt="ImgeURL" width="400" height="300">
+
         <button action="Submit">Home </button>
 
         <p>**********************************************************</p>
